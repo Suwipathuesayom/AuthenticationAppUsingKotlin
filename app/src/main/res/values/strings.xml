@@ -16,7 +16,7 @@
         <font color="#00C9B8"><b>Login</b></font>
         if you already have an account.
     </string>
-    <string name="login_email">Your email or username</string>
+    <string name="login_email">Your email</string>
     <string name="login_password">Your Password</string>
     <string name="login_forgot_pw">Forgot password?</string>
 
@@ -41,4 +41,15 @@
     <string name="home_title">Hello world!</string>
     <string name="home_sub_title">Welcome to home</string>
     <string name="btn_logout">LOGOUT</string>
+
+    <string name="reset_pw_title">Reset Your Passwords</string>
+    <string name="reset_pw_sub_title">
+        <font color="#00C9B8">Reset Password</font>
+        if you got your password.
+    </string>
+    <string name="btn_reset_pw">Reset Password</string>
+    <string name="back_to_login">
+        Back to
+        <font color="#00C9B8"><b>Login</b></font>
+    </string>
 </resources>

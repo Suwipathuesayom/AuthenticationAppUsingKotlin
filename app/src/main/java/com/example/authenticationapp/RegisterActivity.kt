@@ -6,8 +6,10 @@ import android.database.Observable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.authenticationapp.databinding.ActivityRegisterBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.jakewharton.rxbinding2.widget.RxTextView
 import java.util.*
 
@@ -15,11 +17,15 @@ import java.util.*
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //Auth
+        auth = FirebaseAuth.getInstance()
 
         //Email Validation
         val emailStream = RxTextView.textChanges(binding.etEmail)
@@ -33,7 +39,9 @@ class RegisterActivity : AppCompatActivity() {
 
         //Click
         binding.btnRegister.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+            val email = binding.etEmail.text.toString().trim()
+            val password = binding.etPassword.text.toString().trim()
+            registerUser(email, password)
         }
         binding.tvHaveAccount.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
@@ -109,22 +117,34 @@ class RegisterActivity : AppCompatActivity() {
 
     }
 
+    private fun registerUser(email: String, password: String) {
+        auth.createUserWithEmailAndPassword(email,password)
+            .addOnCompleteListener(this) {
+                if (it.isSuccessful){
+                    startActivity(Intent(this, LoginActivity::class.java))
+                    Toast.makeText(this, "ลงทะเบียนสำเร็จ!", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this, it.exception?.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
     private fun showNameExistAlert(isNotValid: Boolean){
-        binding.etFullname.error = if (isNotValid) "Name tidak boleh kosong!" else null
+        binding.etFullname.error = if (isNotValid) "ชื่อไม่สามารถเว้นว่างได้!" else null
     }
 
     private fun showTextMinimalAlert(isNotValid: Boolean, text: String) {
         if (text == "Username")
-            binding.etUsername.error = if (isNotValid) "$text harus lebih dari 6 huruf!" else null
+            binding.etUsername.error = if (isNotValid) "$text ต้องมากกว่า 6 ตัวอักษร!" else null
         else if (text == "Password")
-            binding.etPassword.error = if (isNotValid) "$text harus lebih dari 8 huruf!" else null
+            binding.etPassword.error = if (isNotValid) "$text ต้องมากกว่า 8 ตัวอักษร!" else null
     }
 
     private fun showEmailValidAlert(isNotValid: Boolean){
-        binding.etEmail.error = if (isNotValid) "Email tidak valid!" else null
+        binding.etEmail.error = if (isNotValid) "อีเมลไม่ถูกต้อง!" else null
     }
 
     private fun showPasswordConfirmAlert(isNotValid: Boolean){
-        binding.etConfirmPassword.error = if (isNotValid) "Password tidak sama!" else null
+        binding.etConfirmPassword.error = if (isNotValid) "รหัสผ่านไม่ตรงกัน!" else null
     }
 }

@@ -4,19 +4,25 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.authenticationapp.databinding.ActivityLoginBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.jakewharton.rxbinding2.widget.RxTextView
 
 @SuppressLint("CheckResult")
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //Auth
+        auth = FirebaseAuth.getInstance()
 
         //Username Validation
         val usernameStream = RxTextView.textChanges(binding.etEmail)
@@ -58,11 +64,31 @@ class LoginActivity : AppCompatActivity() {
         //Click
 
         binding.btnLogin.setOnClickListener {
-            startActivity(Intent(this, HomeActivity::class.java))
+            val email = binding.etEmail.text.toString().trim()
+            val password = binding.etPassword.text.toString().trim()
+            loginUser(email, password)
         }
         binding.tvHaventAccount.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
+        binding.tvForgotPw.setOnClickListener {
+            startActivity(Intent(this, ResetPasswordActivity::class.java))
+        }
+    }
+
+    private fun loginUser(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this){ login ->
+                if (login.isSuccessful){
+                    Intent(this, HomeActivity::class.java).also {
+                        it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(it)
+                        Toast.makeText(this, "เข้าสู่ระบบสำเร็จ!", Toast.LENGTH_SHORT).show()
+                    }
+                }else {
+                    Toast.makeText(this, login.exception?.message, Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 
     private fun showTextMinimalAlert(isNotValid: Boolean, text: String) {

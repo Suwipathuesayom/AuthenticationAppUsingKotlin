@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "293616129287",
+    "project_id": "authenticationappbyusingkotlin",
+    "storage_bucket": "authenticationappbyusingkotlin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293616129287:android:f19697247a686c90c4a1a2",
+        "android_client_info": {
+          "package_name": "com.example.authenticationapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "293616129287-90328voqjnv6ibislcp8eo0j26778dia.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaaFTHee0zJPWlbl284n2cXf4t9MibLf0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "293616129287-90328voqjnv6ibislcp8eo0j26778dia.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
