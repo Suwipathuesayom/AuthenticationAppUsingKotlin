@@ -19,14 +19,25 @@ class HomeActivity : AppCompatActivity() {
 
         //Auth
         auth = FirebaseAuth.getInstance()
+        checkUser()
 
+        //handle click, logout User
         binding.btnLogout.setOnClickListener {
             auth.signOut()
-            Intent(this, LoginActivity::class.java).also {
-                it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(it)
-                Toast.makeText(this, "ออกจากระบบสำเร็จ!", Toast.LENGTH_SHORT).show()
-            }
+            checkUser()
+        }
+    }
+
+    private fun checkUser() {
+        //get current user
+        val  firebaseUser = auth.currentUser
+        if (firebaseUser == null){
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+        else{
+            val email = firebaseUser.email
+            binding.emailTv.text  = email
         }
     }
 }

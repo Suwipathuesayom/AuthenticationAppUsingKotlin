@@ -1,55 +1,57 @@
 <resources>
     <string name="app_name">AuthenticationApp</string>
-    <string name="started_title">Hello You!</string>
+    <string name="started_title">สวัสดี!</string>
 
     <string name="started_sub_title">
-        Nice to meet you, come join our community!
-        <br><b>Login</b> if you already have an account.</br>
-        <br><b>Register</b> to get started with the app.</br>
+        ยินดีที่ได้รู้จัก เข้าร่วมชุมชนของเรา!
+        <br><b>เข้าสู่ระบบ</b> หากคุณมีบัญชีอยู่แล้ว</br>
+        <br><b>ลงทะเบียน</b> เพื่อเริ่มต้นใช้งานแอป</br>
     </string>
-    <string name="ilustration_img">Ilustration Image</string>
-    <string name="btn_register">REGISTER</string>
-    <string name="btn_login">LOGIN</string>
-    <string name="login_title">login to app</string>
+    <string name="ilustration_img">ภาพประกอบ</string>
+    <string name="btn_register">ลงทะเบียน</string>
+    <string name="btn_login">เข้าสู่ระบบ</string>
+    <string name="login_title">เข้าสู่ระบบแอพ</string>
 
     <string name="login_sub_title">
-        <font color="#00C9B8"><b>Login</b></font>
-        if you already have an account.
+        <font color="#00C9B8"><b>เข้าสู่ระบบ</b></font>
+        หากคุณมีบัญชีอยู่แล้ว
     </string>
-    <string name="login_email">Your email</string>
-    <string name="login_password">Your Password</string>
-    <string name="login_forgot_pw">Forgot password?</string>
+    <string name="login_email">อีเมล</string>
+    <string name="login_password">รหัสผ่าน</string>
+    <string name="login_forgot_pw">ลืมรหัสผ่าน?</string>
 
     <string name="login_havent_account">
-        I don\'t have an account
-        <font color="#00C9B8"><b>Register</b></font>
+        ฉันไม่มีบัญชี
+        <font color="#00C9B8"><b>ลงทะเบียน</b></font>
     </string>
-    <string name="register_title">Create an account</string>
+    <string name="register_title">สร้างบัญชี</string>
     <string name="register_sub_title">
-        <font color="#00C9B8"><b>Register</b></font>
-        to get started with the app.
+        <font color="#00C9B8"><b>ลงทะเบียน</b></font>
+        เพื่อเริ่มต้นใช้งานแอป
     </string>
-    <string name="register_fullname">Your fullname</string>
-    <string name="register_email">Your email</string>
-    <string name="register_username">Your username</string>
-    <string name="register_confirm_password">Confirm password</string>
+    <string name="register_fullname">ชื่อเต็ม</string>
+    <string name="register_email">อีเมล</string>
+    <string name="register_username">ชื่อผู้ใช้</string>
+    <string name="register_confirm_password">ยืนยันรหัสผ่าน</string>
 
     <string name="register_have_account">
-        I already have an account
-        <font color="#00C9B8"><b>Login</b></font>
+        ฉันมีบัญชี
+        <font color="#00C9B8"><b>เข้าสู่ระบบ</b></font>
     </string>
-    <string name="home_title">Hello world!</string>
-    <string name="home_sub_title">Welcome to home</string>
-    <string name="btn_logout">LOGOUT</string>
+    <string name="home_title">สวัสดี!</string>
+    <string name="home_sub_title">ยินดีต้อนรับสู่บ้าน</string>
+    <string name="btn_logout">ออกจากระบบ</string>
 
-    <string name="reset_pw_title">Reset Your Passwords</string>
+    <string name="reset_pw_title">รีเซ็ตรหัสผ่าน</string>
     <string name="reset_pw_sub_title">
-        <font color="#00C9B8">Reset Password</font>
-        if you got your password.
+        <font color="#00C9B8">รีเซ็ตรหัสผ่าน</font>
+        หากคุณได้รับรหัสผ่าน
     </string>
-    <string name="btn_reset_pw">Reset Password</string>
+    <string name="btn_reset_pw">รีเซ็ตรหัสผ่าน</string>
     <string name="back_to_login">
-        Back to
-        <font color="#00C9B8"><b>Login</b></font>
+        กลับไป
+        <font color="#00C9B8"><b>เข้าสู่ระบบ</b></font>
     </string>
+    <string name="login_with_google">LOGIN WITH GOOGLE</string>
+    <string name="welcome_txt">ยินดีต้อนรับสู่แอปของฉัน</string>
 </resources>

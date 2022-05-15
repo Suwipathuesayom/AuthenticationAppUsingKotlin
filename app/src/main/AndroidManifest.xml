@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AuthenticationApp">
         <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".ResetPasswordActivity"
             android:exported="false" />
         <activity
